@@ -16,7 +16,7 @@ opencv2.4.10
 
 Others
 ------
-Sorry, auto saving mode is no supported yet.
+Sorry, auto saving mode is not supported yet.
 
 License
 -------
