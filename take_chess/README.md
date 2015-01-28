@@ -14,6 +14,10 @@ windows8.1 64bit
 vc12 win32 console application		
 opencv2.4.10		
 
+Others
+------
+Sorry, auto saving mode is no supported yet.
+
 License
 -------
 Source codes are under GPLv3.
