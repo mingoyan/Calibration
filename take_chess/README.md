@@ -10,9 +10,9 @@ take_chess class searchs chessboard decided before and takes specified number of
 
 execution check environment
 ---------------------------
-windows8.1 64bit
-vc12 win32 console application
-opencv2.4.10
+windows8.1 64bit	
+vc12 win32 console application		
+opencv2.4.10		
 
 License
 -------
