@@ -13,7 +13,6 @@
 //You should have received a copy of the GNU General Public License
 //along with this program.If not, see <http://www.gnu.org/licenses>
 
-#include <opencv2/core/core.hpp>
 #include <opencv2/highgui/highgui.hpp>
 #include <opencv2/calib3d/calib3d.hpp>
 #include <opencv2/imgproc/imgproc.hpp>
@@ -24,7 +23,12 @@
 using namespace cv;
 using namespace std;
 
-undistort3::undistort3(string file_name, int device_id)
+undistort3::undistort3()
+{
+
+}
+
+void undistort3::set(string file_name, int device_id)
 {
 	f_name = file_name;
 	dev_id = device_id;
@@ -36,8 +40,8 @@ undistort3::undistort3(string file_name, int device_id)
 		cerr << "Error: Couldn't open the camera." << endl
 			<< "device_id: " << dev_id << endl;
 		exit(EXIT_FAILURE);
-
 	}
+
 }
 
 undistort3::~undistort3()
@@ -102,4 +106,27 @@ Mat undistort3::get_img_undistorted()
 void undistort3::undistort_img(Mat &src, Mat &dst)
 {
 	undistort(src, dst, intrinsic, distCoeffs);
+}
+
+Mat undistort3::get_intrinsic()
+{
+
+	if (intrinsic.empty())
+	{
+		cout << "inrinsic is not imported yet." << endl;
+		exit(EXIT_FAILURE);
+	}
+
+	return intrinsic;
+}
+
+Mat undistort3::get_distCoeffs()
+{
+	if (distCoeffs.empty())
+	{
+		cout << "distCoeffs is not imported yet." << endl;
+		exit(EXIT_FAILURE);
+	}
+
+	return distCoeffs;
 }

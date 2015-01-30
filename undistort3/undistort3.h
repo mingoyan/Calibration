@@ -1,16 +1,3 @@
-#ifdef _DEBUG
-#pragma comment(lib, "opencv_core2410d")
-#pragma comment(lib, "opencv_calib3d2410d")
-#pragma comment(lib, "opencv_highgui2410d")
-#pragma comment(lib, "opencv_imgproc2410d")
-#pragma comment(lib, "opencv_features2d2410d")
-#else
-#pragma comment(lib, "opencv_core2410")
-#pragma comment(lib, "opencv_calib3d2410")
-#pragma comment(lib, "opencv_highgui2410")
-#pragma comment(lib, "opencv_imgproc2410")
-
-#endif
 //Copyright(C) 2015 Nao Kasahara
 //
 //This program is free software : you can redistribute it and / or modify
@@ -26,7 +13,23 @@
 //You should have received a copy of the GNU General Public License
 //along with this program.If not, see <http://www.gnu.org/licenses>
 
+
+#ifdef _DEBUG
+#pragma comment(lib, "opencv_core2410d")
+#pragma comment(lib, "opencv_calib3d2410d")
+#pragma comment(lib, "opencv_highgui2410d")
+#pragma comment(lib, "opencv_imgproc2410d")
+#pragma comment(lib, "opencv_features2d2410d")
+#else
+#pragma comment(lib, "opencv_core2410")
+#pragma comment(lib, "opencv_calib3d2410")
+#pragma comment(lib, "opencv_highgui2410")
+#pragma comment(lib, "opencv_imgproc2410")
+#endif
+
 #include <opencv2/core/core.hpp>
+#include <opencv2/video/video.hpp>
+#include <opencv2/highgui/highgui.hpp>
 
 using namespace std;
 using namespace cv;
@@ -45,9 +48,12 @@ private:
 	void import_fs();
 
 public:
-	undistort3(string file_name, int device_id);
+	undistort3();
 	~undistort3();
+	void set(string file_name, int device_id);
 	Mat get_img_undistorted();
 	Mat get_img_distorted();
+	Mat get_intrinsic();
+	Mat get_distCoeffs();
 	void undistort_img(Mat  &src, Mat &dst);
 };

@@ -18,12 +18,10 @@
 
 #include "undistort3.h"
 
-using namespace cv;
-using namespace std;
-
 int main(int argc, char **argv)
 {
-	undistort3 undist(argv[1], 1);
+	undistort3 undist;
+	undist.set(argv[1], 1);
 	Mat img, img_undistorted;
 	namedWindow("disp_distorted");
 	namedWindow("disp_undistorted");
